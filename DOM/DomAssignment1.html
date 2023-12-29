@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rectangle Box Editor</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    #rectangle {
+      width: 400px;
+      height: 200px;
+      background-color: #3498db;
+      margin: 20px;
+      transition: all 0.3s ease;
+    }
+    .button-container {
+      display: flex;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+<div id="rectangle"></div>
+
+<div class="button-container">
+  <button onclick="changeColor()">Change Color</button>
+  <button onclick="changeShape()">Change Shape</button>
+  <button onclick="changeBorderStyle()">Change Border Style</button>
+
+  <button onclick="toggleVisibility()">Toggle Visibility</button>
+  <button onclick="rotateRectangle()">Rotate</button>
+  <button onclick="reset()">Reset</button>
+</div>
+
+<script>
+  function changeColor() {
+    var rectangle = document.getElementById("rectangle");
+    rectangle.style.backgroundColor = getRandomColor();
+  }
+  
+  function changeShape() {
+    var rectangle = document.getElementById("rectangle");
+    if (rectangle.style.borderRadius === "50%") {
+      rectangle.style.borderRadius = "0%";
+    } else {
+      rectangle.style.borderRadius = "50%";
+    }
+  }
+
+  function changeBorderStyle() {
+    var rectangle = document.getElementById("rectangle");
+    if (rectangle.style.borderStyle === "dashed") {
+      rectangle.style.borderStyle = "solid";
+    } else {
+      rectangle.style.borderStyle = "dashed";
+    }
+  }
+
+  function toggleVisibility() {
+    var rectangle = document.getElementById("rectangle");
+    rectangle.style.display = rectangle.style.display === "none" ? "block" : "none";
+  }
+
+  function rotateRectangle() {
+    var rectangle = document.getElementById("rectangle");
+    var currentRotation = parseInt(rectangle.style.transform.replace("rotate(", "").replace("deg)", "")) || 0;
+    rectangle.style.transform = `rotate(${currentRotation + 45}deg)`;
+  }
+
+  function reset() {
+    var rectangle = document.getElementById("rectangle");
+    rectangle.style.backgroundColor = "#3498db";
+    rectangle.style.borderRadius = "0%";
+    rectangle.style.borderStyle = "solid";
+    rectangle.style.display = "block";
+    rectangle.style.transform = "rotate(0deg)";
+  }
+
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+</script>
+
+</body>
+</html>

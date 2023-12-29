@@ -1,0 +1,137 @@
+<!-- DOM ELEMENT PROPERTIES -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM ELEMENT PROPERTIES</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000000;
+      }
+
+      #GrandParent {
+        display: flex;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .sibling {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .child {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #66a3ff;
+        border-radius: 5px;
+        background-color: #cce0ff;
+        cursor: pointer;
+      }
+
+      .selected {
+        background-color: #ed0101 !important;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- GrandParent -->
+    <h1 style="color: white;margin-top: -250px; margin-right: -370px;">Grand Parent</h1>
+
+    <div id="GrandParent" onclick="handleGrandParent()">
+
+      <!-- First sibling -->
+      <div class="sibling" id="sibling1">
+
+        <!-- Child of a first Sibiling -->
+        <p>First Sibling</p>
+        <div class="child" onclick="handleChildClick()">
+          <p>Child of first sibling</p>
+        </div>
+      </div>
+
+
+      <!-- Second sibling -->
+      <div class="sibling" id="sibling2" onclick="handleSibling2Click()">
+        <p>Second Sibling</p>
+      </div>
+
+      
+      <!-- Third sibling -->
+      <div class="sibling" id="sibling3">
+        <p>Third Sibling</p>
+      </div>
+    </div>
+
+    <script>
+      
+
+      function handleGrandParent() {
+        console.log(document.getElementById("GrandParent").children);
+        console.log(document.getElementById("GrandParent").childNodes);
+
+        // IF YOU WANT TO APPLY FOR SINGLE CHILDREN
+
+        // document.getElementById("GrandParent").children[0].classList.toggle("selected")
+
+        //IF YOU WANT TO APPLY COLORS FOR ALL CHILDREN
+
+        // const children = document.getElementById("GrandParent").children;
+        // for (let i = 0; i < children.length; i++) {
+        //   children[i].classList.toggle("selected");
+        // }
+      }
+
+      function handleChildClick() {
+       console.log( document.getElementsByClassName("child")[0].parentElement)
+       console.log( document.getElementsByClassName("child")[0].parentElement.parentElement)
+
+        // TO APPLY COLORS TO THE IMMEDIATE PARENT
+          //  document.getElementsByClassName("child")[0].parentElement.classList.toggle("selected")
+
+        // TO APPLY COLORS TO THE GRAND PARENT
+        // document.getElementsByClassName("child")[0].parentElement.parentElement.classList.toggle("selected");
+      }
+
+      function handleSibling2Click(){
+        console.log(document.getElementById("sibling2").previousSibling)
+        console.log(document.getElementById("sibling2").previousElementSibling)
+
+        // NEXT SIBLINGS AND NEXTELEMENTSIBLINGS
+        console.log(document.getElementById("sibling2").nextSibling)
+        console.log(document.getElementById("sibling2").nextElementSibling)
+
+    // document.getElementById("sibling2").previousElementSibling.style.background="green"
+    // document.getElementById("sibling2").nextElementSibling.style.background="green"
+
+
+
+    //QUESTION
+    // document.getElementById("sibling2").previousElementSibling.nextElementSibling.style.background="yellow"
+      }
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,87 @@
+
+<!-- WEB ELEMENTS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WEB Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #parent {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .Gowtham {
+            color: blue;
+        }
+
+        .bgred {
+            background-color: red;
+            color: white; 
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <p id="text" class="text">Hey Hi Gowtham</p>
+     
+         <!-- Buttons -->
+         <button onclick="getAttributeFunction()">Get Attribute</button>
+         <button onclick="setAttributeFunction()">Set Attribute</button>
+         <button onclick="setRemoveAttributeFunction()">Removing Attribute</button>
+         <button onclick="addClassListExampleFunction()">Add ClassList Example</button>
+         <button onclick="removeClassListExampleFunction()">Remove ClassList Example</button>
+         <button onclick="classListExampleFunction()">ClassList Example</button>
+     </div>
+     
+     <script>
+         function getAttributeFunction() {
+             console.log(document.getElementById("parent"))
+             console.log(document.getElementById("parent").getAttribute("id"))
+         }
+     
+         function setAttributeFunction() {
+             document.getElementById("parent").setAttribute("class", "Gowtham")
+             console.log(document.getElementById("parent"))
+         }
+     
+         function setRemoveAttributeFunction() {
+             document.getElementById("parent").removeAttribute("class")
+             console.log(document.getElementById("parent"))
+         }
+     
+         function addClassListExampleFunction() {
+             document.getElementById("text").classList.add("bgred")
+             console.log(document.getElementById("text"))
+         }
+     
+         function removeClassListExampleFunction() {
+             document.getElementById("text").classList.remove("bgred")
+             console.log(document.getElementById("text"))
+         }
+     
+         function classListExampleFunction() {
+             console.log(document.getElementById("text").classList)
+             console.log(document.getElementById("text"))
+         }
+       
+     </script>
+     
+
+</body>
+</html>

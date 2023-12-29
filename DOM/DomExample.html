@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Functionalities</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+       
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+            color: #3498db;
+        }
+
+        #toggleImage {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<button id="button1" onclick="changeText()">Change Text</button>
+<button id="button2" onclick="toggleBackgroundColor()">Toggle Background Color</button>
+<button id="button3" onclick="toggleImage()">Show/Hide Image</button>
+<button id="button4" onclick="increaseFontSize()">Increase Font Size</button>
+<button id="button5" onclick="resetStyles()">Reset Styles</button>
+<button id="button6" onclick="openLink()">Open Link</button>
+
+<script>
+    // Function for button 1
+    function changeText() {
+        document.getElementById("button1").innerText = "Text Changed!";
+    }
+
+    // Function for button 2
+    function toggleBackgroundColor() {
+        document.body.style.backgroundColor = document.body.style.backgroundColor === "black" ? "white" : "black";
+    }
+
+    // Function for button 3
+    function toggleImage() {
+        var image = document.getElementById("toggleImage");
+        image.style.display = (image.style.display === "none" || image.style.display === "") ? "block" : "none";
+    }
+
+    // Function for button 4
+    function increaseFontSize() {
+        document.body.style.fontSize = "20px";
+    }
+
+    // Function for button 5
+    function resetStyles() {
+        document.body.style = "";
+    }
+
+    // Function for button 6
+    function openLink() {
+        window.open("https://www.example.com", "_blank");
+    }
+</script>
+
+<!-- Image to be toggled by button 3 -->
+<img id="toggleImage" src="https://via.placeholder.com/150" alt="Toggled Image" style="display: none;">
+
+</body>
+</html>

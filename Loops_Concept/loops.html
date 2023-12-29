@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops_Concepts</title>
+</head>
+<body>
+    <script>  
+
+// for in, for of, forEach  ====> iterations        
+// map, filter, reduce ===> Higher Order Functions
+// call, bind, apply  ====> manipulate
+
+const students = [{ name: 'sankar', age: '15' }, { name: 'shiva', age: '24' }, { name: 'shasi', age: '25' }, { name: 'goutham', age: '30' }]
+
+// FOR IN vs FOR OF
+
+// for (let i in students) {     // it will returns indexes
+//    console.log(i);
+
+//    console.log(students[i]);
+// }
+
+// for (let i of students) {      // it will return direct data
+//    console.log(i);
+//    console.log(i.name);
+// }
+
+// we can change entire array or any object value inside the array using foreach
+// students.forEach((data) => {
+//    console.log(data);
+//    data.age='40' 
+// })
+// console.log(students);
+
+
+
+// HOF which returns new array
+// Map is similar as forEach loop it will loop through each object
+
+// const newarray = students.map((data) => {
+//    return data
+// })
+// console.log(newarray);
+
+
+// OR
+
+// const newarray = students.map((data) => data)
+// console.log(newarray);
+
+
+// Map vs foreach
+//  Map returns a new array, but foreach doesn't returns new array
+
+// const newArray = students.forEach((data) => {         //invalid output
+//    return data
+// })
+
+// console.log(newArray);
+
+
+// const newarray = students.map((data) => {
+//    return data
+// })
+// console.log(newarray);
+
+
+// Filter
+//  it returns a new array and filter according to the condition
+
+// const aged = students.filter((data) => {
+//    return data.age > 18
+// })
+// console.log(aged);
+
+// difference between normal loop and filter for adding
+
+// let agedbelow18 = []
+// for (let i=0; i< students.length; i++) {
+//    if (students[i].age > 18) {
+//       agedbelow18.push(students[i])
+//    }
+// }
+// console.log(agedbelow18);
+
+
+
+
+// reduce
+// const sumofages = students.reduce((sum, data) => {   // sum means output variable which stores sum
+//    return sum + +data.age
+// }, 0)  // intial value is 0 for sum variable
+// console.log(sumofages);
+
+// difference between normal loop and reduce for adding
+// let sum = 0
+// for (let i of students) {
+//    sum = sum+i.age
+// }
+// console.log(sum);
+
+
+
+
+//example for 'this'
+
+// const shiva = {
+//    height: '175cm',
+//    nameCall: function () {
+//       return `shiva  height is ${this.height}`
+//    }
+// }
+
+// console.log(shiva.nameCall());
+
+
+
+// CALL
+
+// function studentName() {
+//    return this.age
+// }
+// const s1 = {name: 'sankar', age: 23}          // adding s1 object as a property for studentname function
+
+// const callExample = studentName.call(s1)
+// console.log(callExample);
+
+
+// with extra parameter
+
+// function studentName(nickname, friend) {
+//    return `${this.name} has nick name ${nickname} he has frd ${friend}`
+// }
+
+// const s1 = { name: 'sankar', age: 23 }                 // adding s1 object as a property for studentname function
+
+// const callExample = studentName.call(s1, 'sa', 'rahul')
+// console.log(callExample);
+
+
+
+// APPLY
+
+// function studentName() {
+//    return this.name
+// }
+
+// // adding s1 object as a property for studentname function
+// const s1 = {name: 'sankar', age: 23}
+
+// const callExample = studentName.apply(s1)
+// console.log(callExample);
+
+
+// with parameters
+
+// function studentName(nickname, friend) {
+//    return `${this.name} has nick name ${nickname} he has frd ${friend}`
+// }
+
+// // adding s1 object as a property for studentname function
+// const s1 = { name: 'sankar', age: 23 }
+
+// const callExample = studentName.apply(s1, ['sa', 'rahul'])
+// console.log(callExample);
+
+
+
+
+// BIND
+// function studentName() {
+//    return this.name
+// }
+// const s1 = {name: 'sankar', age: 23}   // adding s1 object as a property for studentname function
+
+// const callExample = studentName.bind(s1)
+// // console.log(callExample);   // it will change callExample variable to function
+
+// console.log(callExample());
+
+
+
+// with parameters
+
+// function studentName(nickname, friend) {
+//    return `${this.name} has nick name ${nickname} he has frd ${friend}`
+// }
+
+// // adding s1 object as a property for studentname function
+// const s1 = { name: 'sankar', age: 23 }
+
+// const callExample = studentName.bind(s1, 'sa', 'rahul')
+// console.log(callExample());
+
+
+    </script>
+</body>
+</html>

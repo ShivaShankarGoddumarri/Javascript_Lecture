@@ -1,0 +1,178 @@
+
+<!-- Browser Object Model (BOM) properties and methods -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Properties and methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #3b3b3b;
+        }
+
+        #buttons-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        code {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the buttons -->
+    <div id="buttons-container">
+        <!-- Buttons to trigger the JavaScript functions -->
+        <button onclick="displayInnerDimensions()">Inner Dimensions</button>
+        <button onclick="displayOuterDimensions()">Outer Dimensions</button>
+        <button onclick="displayScrollPosition()">Scroll Position</button>
+        <button onclick="displayCurrentURL()">Current URL</button>
+        <button onclick="navigateToNewURL()">Navigate to new URL</button>
+        <button onclick="replaceCurrentURL()">Replace current URL</button>
+        <button onclick="displayAlert()">Display Alert</button>
+        <button onclick="promptUser()">Prompt User</button>
+        <button onclick="displayConfirmation()">Display Confirmation</button>
+        <button onclick="executeWithDelay()">Execute with Delay</button>
+        <button onclick="executeAtIntervals()">Execute at Intervals</button>
+        <button onclick="displayUserAgent()">Display User Agent</button>
+        <button onclick="displayScreenOrientation()">Display Screen Orientation</button>
+        <button onclick="displayScreenDimensions()">Display Screen Dimensions</button>
+        <button onclick="openNewWindow()">Open New Window</button>
+    </div>
+
+    <script>
+        // Function to display inner dimensions of the browser window
+        function displayInnerDimensions() {
+            console.log("Inner Height: " + window.innerHeight);
+            console.log("Inner Width: " + window.innerWidth);
+        }
+
+        // Function to display outer dimensions of the browser window
+        function displayOuterDimensions() {
+            console.log("Outer Height: " + window.outerHeight);
+            console.log("Outer Width: " + window.outerWidth);
+        }
+
+        // Function to display scroll position
+        function displayScrollPosition() {
+            console.log("Scroll X: " + window.scrollX);
+            console.log("Scroll Y: " + window.scrollY);
+        }
+
+        // Function to display current URL
+        function displayCurrentURL() {
+            console.log("Current URL: " + window.location.href);
+            console.log("Pathname: " + window.location.pathname);
+        }
+
+        // Function to navigate to a new URL
+        function navigateToNewURL() {
+            window.location.assign("https://www.example.com");
+        }
+
+        // Function to replace the current URL
+        function replaceCurrentURL() {
+            window.location.replace("https://www.google.com");
+        }
+
+        // Function to display an alert
+        function displayAlert() {
+            alert("Hello, this is an alert!");
+        }
+
+        // Function to prompt the user for input
+        function promptUser() {
+            let userInput = prompt("Please enter your name:", "Shiva");
+            console.log("User entered: " + userInput);
+        }
+
+        // Function to display a confirmation dialog
+        function displayConfirmation() {
+            let userConfirmed = confirm("Gowtham, Do you have any doubts?");
+            console.log("User confirmed: " + userConfirmed);
+        }
+
+        // Function to execute with a delay
+        function executeWithDelay() {
+            setTimeout(function() {
+                console.log("This will be logged after 2000 milliseconds (2 seconds).");
+            }, 2000);
+        }
+
+        // Function to execute at intervals
+        function executeAtIntervals() {
+            let intervalId = setInterval(function() {
+                console.log("This will be logged every 1000 milliseconds (1 second).");
+            }, 1000);
+
+            // Stop the interval after 5000 milliseconds (5 seconds)
+            setTimeout(function() {
+                clearInterval(intervalId);
+            }, 5000);
+        }
+
+        // Function to display user agent and platform
+        function displayUserAgent() {
+            console.log("User Agent: " + window.navigator.userAgent);
+            console.log("Platform: " + window.navigator.platform);
+        }
+
+        // Function to display screen orientation
+        function displayScreenOrientation() {
+            console.log("Screen Orientation: " + window.screen.orientation.type);
+        }
+
+        // Function to display screen dimensions and color depth
+        function displayScreenDimensions() {
+            console.log("Screen Width: " + screen.width);
+            console.log("Color Depth: " + screen.colorDepth);
+        }
+       
+
+        // Function to open a new window
+        function openNewWindow() {
+            // Note: Due to browser security features, the pop-up may be blocked or restricted.
+            let newWindow = window.open("https://www.google.com", "_blank", "width=600,height=400");
+            if (newWindow) {
+                console.log("New window opened successfully.");
+            } else {
+                console.log("Failed to open a new window. Please check your browser settings.");
+            }
+        }
+
+    </script>
+</body>
+</html>

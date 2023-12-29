@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures & Anonymous Functions</title>
+    
+</head>
+<body>
+    <script>
+// ANONYMOUS FUNCTION and self calling function
+// (function () {
+//     console.log('object');
+// })()
+
+// callback means a function passed as a parameter to another function
+// const arr = [1, 2, 3, 4]
+// arr.map((a) => {
+//     console.log(a);
+// })
+
+//  closure means a function nested or child to the another function
+
+// Anonymous functions
+// function parent() {
+//     return function (name){
+//         console.log(name);
+//         return function () {
+//             console.log('child2');
+//         }
+//     }
+// }
+
+// parent()('sankar')()
+
+
+// named functions
+// function parent() {
+//     return function child1(name) {
+//         console.log('name');
+//         return function child2() {
+//             console.log('child2');
+//         }
+//     }
+// }
+
+// parent()('sankar')()
+
+
+
+// function sub(a, b) {
+//     return a-b
+// }
+
+// function sum(a, b) {
+//     return a+b
+// }
+
+// function operation(op, a, b) {
+//     return op(a,b)
+// }
+
+// console.log(operation(sum, 1, 2));
+    </script>
+</body>
+</html>

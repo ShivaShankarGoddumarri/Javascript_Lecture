@@ -1,0 +1,73 @@
+<!-- Changing color for navbar -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Elements</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            padding: 10px;
+            background-color: red;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark {
+            background-color: black !important;
+            color: white; 
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #345edb;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4d75ec;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="nav" id="navbar">
+            <button onclick="toggleTheme()">Toggle Theme</button>
+            <h3>NAVBAR</h3>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.getElementById('navbar').classList.toggle('dark');
+        }
+    </script>
+</body>
+
+</html>
